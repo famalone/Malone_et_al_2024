@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SAGA_METADATA>
+  <HISTORY>
+    <MODULE>Reclassify Grid Values</MODULE>
+    <OPTION type="choice" id="METHOD" name="Method">0</OPTION>
+    <OPTION type="double" id="OLD" name="old value">0.000000</OPTION>
+    <OPTION type="double" id="NEW" name="new value">-99999.000000</OPTION>
+    <OPTION type="choice" id="SOPERATOR" name="operator">0</OPTION>
+    <OPTION type="double" id="MIN" name="minimum value">0.000000</OPTION>
+    <OPTION type="double" id="MAX" name="maximum value">10.000000</OPTION>
+    <OPTION type="double" id="RNEW" name="new value">5.000000</OPTION>
+    <OPTION type="choice" id="ROPERATOR" name="operator">0</OPTION>
+    <OPTION type="static_table" id="RETAB" name="Lookup Table">
+      <FIELDS>
+        <FIELD type="DOUBLE">minimum</FIELD>
+        <FIELD type="DOUBLE">maximum</FIELD>
+        <FIELD type="DOUBLE">new</FIELD>
+      </FIELDS>
+      <RECORDS>
+        <RECORD>
+          <FIELD>0.000000</FIELD>
+          <FIELD>10.000000</FIELD>
+          <FIELD>1.000000</FIELD>
+        </RECORD>
+        <RECORD>
+          <FIELD>10.000000</FIELD>
+          <FIELD>20.000000</FIELD>
+          <FIELD>2.000000</FIELD>
+        </RECORD>
+      </RECORDS>
+    </OPTION>
+    <OPTION type="choice" id="TOPERATOR" name="operator">0</OPTION>
+    <OPTION type="boolean" id="NODATAOPT" name="no data values">FALSE</OPTION>
+    <OPTION type="double" id="NODATA" name="new value">0.000000</OPTION>
+    <OPTION type="boolean" id="OTHEROPT" name="other values">FALSE</OPTION>
+    <OPTION type="double" id="OTHERS" name="new value">0.000000</OPTION>
+    <OPTION type="grid_system" id="PARAMETERS_GRID_SYSTEM" name="Grid system">
+      <CELLSIZE>10</CELLSIZE>
+      <XMIN>315789</XMIN>
+      <XMAX>328359</XMAX>
+      <YMIN>5186205.5</YMIN>
+      <YMAX>5199055.5</YMAX>
+      <DATA type="grid" id="INPUT" name="Grid">
+        <MODULE>Reclassify Grid Values</MODULE>
+        <OPTION type="choice" id="METHOD" name="Method">0</OPTION>
+        <OPTION type="double" id="OLD" name="old value">100.000000</OPTION>
+        <OPTION type="double" id="NEW" name="new value">1.000000</OPTION>
+        <OPTION type="choice" id="SOPERATOR" name="operator">0</OPTION>
+        <OPTION type="double" id="MIN" name="minimum value">0.000000</OPTION>
+        <OPTION type="double" id="MAX" name="maximum value">10.000000</OPTION>
+        <OPTION type="double" id="RNEW" name="new value">5.000000</OPTION>
+        <OPTION type="choice" id="ROPERATOR" name="operator">0</OPTION>
+        <OPTION type="static_table" id="RETAB" name="Lookup Table">
+          <FIELDS>
+            <FIELD type="DOUBLE">minimum</FIELD>
+            <FIELD type="DOUBLE">maximum</FIELD>
+            <FIELD type="DOUBLE">new</FIELD>
+          </FIELDS>
+          <RECORDS>
+            <RECORD>
+              <FIELD>0.000000</FIELD>
+              <FIELD>10.000000</FIELD>
+              <FIELD>1.000000</FIELD>
+            </RECORD>
+            <RECORD>
+              <FIELD>10.000000</FIELD>
+              <FIELD>20.000000</FIELD>
+              <FIELD>2.000000</FIELD>
+            </RECORD>
+          </RECORDS>
+        </OPTION>
+        <OPTION type="choice" id="TOPERATOR" name="operator">0</OPTION>
+        <OPTION type="boolean" id="NODATAOPT" name="no data values">FALSE</OPTION>
+        <OPTION type="double" id="NODATA" name="new value">0.000000</OPTION>
+        <OPTION type="boolean" id="OTHEROPT" name="other values">FALSE</OPTION>
+        <OPTION type="double" id="OTHERS" name="new value">0.000000</OPTION>
+        <OPTION type="grid_system" id="PARAMETERS_GRID_SYSTEM" name="Grid system">
+          <CELLSIZE>10</CELLSIZE>
+          <XMIN>315789</XMIN>
+          <XMAX>328359</XMAX>
+          <YMIN>5186205.5</YMIN>
+          <YMAX>5199055.5</YMAX>
+          <DATA type="grid" id="INPUT" name="Grid">
+            <GRID_OPERATION NAME="Assign">0</GRID_OPERATION>NOT SET</DATA>
+        </OPTION>
+        <DATA type="grid" id="INPUT" name="Grid">
+          <GRID_OPERATION NAME="Assign">0</GRID_OPERATION>NOT SET</DATA>NOT SET</DATA>
+    </OPTION>
+    <DATA type="grid" id="INPUT" name="Grid">
+      <MODULE>Reclassify Grid Values</MODULE>
+      <OPTION type="choice" id="METHOD" name="Method">0</OPTION>
+      <OPTION type="double" id="OLD" name="old value">100.000000</OPTION>
+      <OPTION type="double" id="NEW" name="new value">1.000000</OPTION>
+      <OPTION type="choice" id="SOPERATOR" name="operator">0</OPTION>
+      <OPTION type="double" id="MIN" name="minimum value">0.000000</OPTION>
+      <OPTION type="double" id="MAX" name="maximum value">10.000000</OPTION>
+      <OPTION type="double" id="RNEW" name="new value">5.000000</OPTION>
+      <OPTION type="choice" id="ROPERATOR" name="operator">0</OPTION>
+      <OPTION type="static_table" id="RETAB" name="Lookup Table">
+        <FIELDS>
+          <FIELD type="DOUBLE">minimum</FIELD>
+          <FIELD type="DOUBLE">maximum</FIELD>
+          <FIELD type="DOUBLE">new</FIELD>
+        </FIELDS>
+        <RECORDS>
+          <RECORD>
+            <FIELD>0.000000</FIELD>
+            <FIELD>10.000000</FIELD>
+            <FIELD>1.000000</FIELD>
+          </RECORD>
+          <RECORD>
+            <FIELD>10.000000</FIELD>
+            <FIELD>20.000000</FIELD>
+            <FIELD>2.000000</FIELD>
+          </RECORD>
+        </RECORDS>
+      </OPTION>
+      <OPTION type="choice" id="TOPERATOR" name="operator">0</OPTION>
+      <OPTION type="boolean" id="NODATAOPT" name="no data values">FALSE</OPTION>
+      <OPTION type="double" id="NODATA" name="new value">0.000000</OPTION>
+      <OPTION type="boolean" id="OTHEROPT" name="other values">FALSE</OPTION>
+      <OPTION type="double" id="OTHERS" name="new value">0.000000</OPTION>
+      <OPTION type="grid_system" id="PARAMETERS_GRID_SYSTEM" name="Grid system">
+        <CELLSIZE>10</CELLSIZE>
+        <XMIN>315789</XMIN>
+        <XMAX>328359</XMAX>
+        <YMIN>5186205.5</YMIN>
+        <YMAX>5199055.5</YMAX>
+        <DATA type="grid" id="INPUT" name="Grid">
+          <GRID_OPERATION NAME="Assign">0</GRID_OPERATION>NOT SET</DATA>
+      </OPTION>
+      <DATA type="grid" id="INPUT" name="Grid">
+        <GRID_OPERATION NAME="Assign">0</GRID_OPERATION>NOT SET</DATA>NOT SET</DATA>
+  </HISTORY>
+  <SOURCE>
+    <FILE>X:\Dropbox\Lubrecht Ecohydrology\USDA NIFA Proposal July 2013\Terrain Analysis_SiteMap\NFK_Elk_clip.sgrd</FILE>
+    <DATABASE></DATABASE>
+    <PROJECTION></PROJECTION>
+  </SOURCE>
+</SAGA_METADATA>
