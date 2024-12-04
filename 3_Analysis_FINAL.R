@@ -249,7 +249,7 @@ p6 <- ggplot() +
 timeseries <- plot_grid(p0,p4,p2,p1,p3,p5,p6, nrow = 7, rel_heights = c(1.3, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5),
                         axis = 'rl', align = 'v')
 
-ggsave(filename = paste0(work.dir,'/Figures/Figure_2.tiff'),
+ggsave(filename = paste0(work.dir,'/Figures/Figure_2.jpg'),
        plot = timeseries,
        dpi = 800, units = "in", width = 6.5, height = 7.5)
 
@@ -328,7 +328,7 @@ p2 <- ggplot(data = dendro_data %>% filter(!(topo == 'Hollow') & max_dendro > -5
 Growth_Curves <- grid.arrange(patchworkGrob(p1 + p2), left = 'Daily Maximum Radial Growth (mm)', bottom = 'Time')
 
 
-ggsave(filename = paste0(work.dir,'/Figures/Figure_3.tiff'),
+ggsave(filename = paste0(work.dir,'/Figures/Figure_3.jpg'),
        plot = Growth_Curves,
        dpi = 800, units = "in", width = 6.5, height = 7)
 
@@ -549,7 +549,7 @@ soil_temp_julyP = overall_p(soil_temp_july)
 
 soil_temp_aug = lm(formula = aug_avg_soil_temp ~ TWI + Elevation + Aspect, data = site_data)
 soil_temp_aug = stepAIC(soil_temp_aug, trace = T)
-capture.output(summary(soil_temp_july), file = paste0(work.dir,"/Stat_Output/4_SoilTemp_Regression_July.txt")) #.txt file with summary output.
+capture.output(summary(soil_temp_aug), file = paste0(work.dir,"/Stat_Output/4_SoilTemp_Regression_Aug.txt")) #.txt file with summary output.
 soil_temp_augR2 = summary(soil_temp_aug)$adj.r.squared
 soil_temp_augP = overall_p(soil_temp_aug)
 #####
@@ -632,7 +632,7 @@ EE'
 
 TPI_regressions <- p2 + p1 + p3 + p4 + p5 + plot_layout(design = layout, guides = 'collect')
 
-ggsave(filename = paste0(work.dir,'/Figures/Figure_4.tiff'),
+ggsave(filename = paste0(work.dir,'/Figures/Figure_4.jpg'),
        plot = TPI_regressions,
        dpi = 800, units = "in", width = 6.5, height = 6.75)
 
@@ -658,7 +658,7 @@ filtered %>%
 
 # Cessation Predicted by Microclimate #
 site_data_VPDpositive = site_data %>% mutate(avg_VPD = avg_VPD*-1)
-LM5 = lm(formula = cessation_day_gomp ~ poly(avg_TDR,2) + avg_VPD + avg_temp + avg_soil_temp,
+LM5 = lm(formula = cessation_day_gomp ~ poly(avg_TDR,2, raw = T) + avg_VPD + avg_temp + avg_soil_temp,
          data = site_data_VPDpositive)
 # Stepwise AIC identifies soil temperature as not contributing additional explanatory power
 LM5 <- stepAIC(LM5)
@@ -687,7 +687,15 @@ ces_env <- ggplot(data = site_data, aes(x = yhat7, y = cessation_day_gomp)) +
         legend.position = c(0.065, 0.8),
         legend.justification = c("left", "top"),
         plot.tag = element_text(size = tagsize))
-
+####################################################
+# Repeat model but use orthagonal polynomial for soil moisture so that partial effect plot works.
+# This is only statistically valid when model results are exactly the same, which is the case here.
+site_data_VPDpositive = site_data %>% mutate(avg_VPD = avg_VPD*-1)
+LM5 = lm(formula = cessation_day_gomp ~ poly(avg_TDR,2) + avg_VPD + avg_temp + avg_soil_temp,
+         data = site_data_VPDpositive)
+# Stepwise AIC
+LM5 <- stepAIC(LM5)
+summary(LM5)
 ############# Partial Effects Plots
 response_var1 <- visreg(LM5, "avg_TDR", scale = "linear", rug = TRUE,
                         xlab = 'Soil Moisture (%)', line.par = list(col = '#A04800'),
@@ -732,7 +740,7 @@ ces_env_vars <- grid.arrange(response_var1, response_var2, response_var3, ces_en
                              layout_matrix = cbind(c(4, 4, 4), c(1, 2, 3)),
                              nrow = 3, ncol = 2, widths = c(1, .5))
 
-ggsave(filename = paste0(work.dir,'/Figures/Figure_5.tiff'),
+ggsave(filename = paste0(work.dir,'/Figures/Figure_5.jpg'),
        plot = ces_env_vars,
        dpi = 800, units = "in", width = 6.5, height = 4.25)
 

@@ -85,7 +85,7 @@ NFEC_TPI = tpi(NFEC_DEM, win = 'circle', scale = 150)
 # Requires SAGA GIS and RSAGA
 # SAGA GIS version 9.5.1 was used in our analysis
 
-env = rsaga.env() # Establish SAGA path (you may need to define path argument, depending on the location of saga and your OS)
+env = rsaga.env(path = 'C:/Users/fm165458/Desktop/saga-9.5.1_x64') # Establish SAGA path (you may need to define path argument, depending on the location of saga and your OS)
 
 # Convert NFEC DEM to SAGA format
 writeRaster(NFEC_DEM, paste0(work.dir,'/Geospatial/NFEC_DEM.sdat'), filetype = "SAGA", overwrite = TRUE)
@@ -112,7 +112,7 @@ rsaga.geoprocessor(
 twi_file <- tempfile(fileext = ".sgrd")
 rsaga.geoprocessor(
   lib = "ta_hydrology",
-  module = "Topographic Wetness Index (TWI)",
+  module = "Topographic Wetness Index (TWI)", # This module name changes with version and OS. Change if needed.
   param = list(SLOPE = slope_file, AREA = flow_acc_file, CONV = 1, METHOD = 1, TWI = twi_file),
   env = env
 )
